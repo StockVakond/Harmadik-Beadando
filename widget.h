@@ -11,7 +11,7 @@ protected:
 public:
     virtual ~Widget(){};
     Widget(Application *,int px, int py, size_t sx, size_t sy);
-    virtual bool active(int, int);
+    bool active(int, int);
     virtual void draw() = 0;
     virtual void handle(genv::event ev) = 0;
     virtual std::string getvalue()=0;

@@ -19,10 +19,10 @@ protected:
 
 public:
     Droplist(Application *, int px, int py, int sx, int sy, vector<string>_elements);
-    virtual void draw();
-    virtual void handle(genv::event ev);
-    virtual string getvalue();
-    virtual void button_release();
+     void draw();
+     void handle(genv::event ev);
+     string getvalue();
+     void button_release();
     int get_id(){return order_of_active;}
     void addelement(string);
     void remelement(int id);

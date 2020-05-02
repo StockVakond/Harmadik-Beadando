@@ -14,7 +14,7 @@ void Application::events(){
     vector<Widget*>::iterator itr;
     Widget* focus=nullptr;
     while(gin >> ev &&(char)(ev.keycode)!=('q')) {
-        gout<<color(240,240,240)<<move_to(0,0)<<box_to(499,499);
+        gout<<color(240,240,240)<<move_to(0,0)<<box_to(800-1,800-1);
         bool first=true;
         if(first){
             for (Widget * wg : widgets)

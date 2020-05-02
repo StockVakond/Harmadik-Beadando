@@ -1,31 +1,16 @@
-#include "application.h"
-#include "widget.h"
-#include "counter.h"
-#include "drop_list.h"
-#include <string>
+#include "thisapp.h"
 #include <vector>
-#include <fstream>
 using namespace std;
-using namespace genv;
-
-class MyApp: public Application{
-private:
-    Counter *c1;
-    Counter *c2;
-    Droplist *d1;
-    Droplist *d2;
-public:
-    MyApp(){
-    gout.open(500,500);
-    d1= new Droplist(this,50,50,100,100,{"aaaa","aasdfasdf","fasd","asdf","sfdf","qwer","dsf"});
-    }
-    void action(string action_id){
-        /*if(action_id=="enter"){
-            }
-        if(action_id=="right"){
-            }
+MyApp::MyApp()
+{
+    vector<vector<Tile *>> all_c;
+    genv::gout.open(800,800);
+    for(int i=0;i<8;i++){
+        vector<Tile *> one_c;
+        for(int j=0; j<8;j++){
+            one_c.push_back(new Tile(this,200+i*50,200+j*50,50,50,{i,j},2));
         }
-        if(action_id=="left"){
-        }*/
+        all_c.push_back(one_c);
     }
-};
+    board=all_c;
+}

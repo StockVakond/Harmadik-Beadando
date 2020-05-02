@@ -19,10 +19,10 @@ public:
 
     Roller(int px, int py, int sx, int sy,int s_elements);
     int gety(){return rpos_y;}
-    virtual void handle(event ev);
-    virtual void draw();
-    virtual void roll(int a);
-    virtual void button_release();
+     void handle(event ev);
+     void draw();
+     void roll(int a);
+     void button_release();
 };
 
 

@@ -17,10 +17,10 @@ public:
     Counter(Application *ca,int px, int py,int vmin,int vmax,  int val);
 
 
-    virtual void draw();
-    virtual void handle(genv::event ev);
-    virtual string getvalue();
-    virtual void button_release();
+    void draw();
+    void handle(genv::event ev);
+    string getvalue();
+    void button_release();
 
 };
 
