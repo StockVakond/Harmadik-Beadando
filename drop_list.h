@@ -10,7 +10,6 @@ using namespace std;
 class Droplist : public Widget{
 protected:
     vector<string> elements;
-    int no_displayed;
     int order_of_active=-1;
     int element_size=genv::gout.cascent()+genv::gout.cdescent()+4;
     int drpos;
@@ -19,7 +18,7 @@ protected:
     Roller *rlr;
 
 public:
-    Droplist(Application *, int px, int py, int sx, int _no_displayed, vector<string>_elements);
+    Droplist(Application *, int px, int py, int sx, int sy, vector<string>_elements);
     virtual void draw();
     virtual void handle(genv::event ev);
     virtual string getvalue();
