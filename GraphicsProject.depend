@@ -87,7 +87,7 @@
 	"roller.h"
 	<iostream>
 
-1588426796 source:c:\users\levib\documents\github\harmadik-beadando\application.cpp
+1588875543 source:c:\users\levib\documents\github\harmadik-beadando\application.cpp
 	"application.h"
 	"widget.h"
 	<string>
@@ -95,58 +95,58 @@
 	<fstream>
 	<iostream>
 
-1588426796 c:\users\levib\documents\github\harmadik-beadando\application.h
+1588877653 c:\users\levib\documents\github\harmadik-beadando\application.h
 	<string>
 	<vector>
 
-1588426796 c:\users\levib\documents\github\harmadik-beadando\widget.h
+1588879182 c:\users\levib\documents\github\harmadik-beadando\widget.h
 	<string>
 	"graphics.hpp"
 	"application.h"
 
-1588426796 c:\users\levib\documents\github\harmadik-beadando\include\graphics.hpp
+1588874917 c:\users\levib\documents\github\harmadik-beadando\include\graphics.hpp
 	<string>
 
-1588426796 source:c:\users\levib\documents\github\harmadik-beadando\counter.cpp
+1588879126 source:c:\users\levib\documents\github\harmadik-beadando\counter.cpp
 	"counter.h"
 	<string>
 	<sstream>
 
-1588426796 c:\users\levib\documents\github\harmadik-beadando\counter.h
+1588879127 c:\users\levib\documents\github\harmadik-beadando\counter.h
 	<cmath>
 	"widget.h"
 	"help.h"
 
-1588426796 c:\users\levib\documents\github\harmadik-beadando\help.h
+1588874917 c:\users\levib\documents\github\harmadik-beadando\help.h
 	<sstream>
 	<string>
 
-1588433380 source:c:\users\levib\documents\github\harmadik-beadando\drop_list.cpp
+1588879127 source:c:\users\levib\documents\github\harmadik-beadando\drop_list.cpp
 	"drop_list.h"
 	"roller.h"
 
-1588429311 c:\users\levib\documents\github\harmadik-beadando\drop_list.h
+1588874917 c:\users\levib\documents\github\harmadik-beadando\drop_list.h
 	"widget.h"
 	"roller.h"
 	<vector>
 	<string>
 
-1588432334 c:\users\levib\documents\github\harmadik-beadando\roller.h
+1588874917 c:\users\levib\documents\github\harmadik-beadando\roller.h
 	"graphics.hpp"
 	<iostream>
 
-1588426796 source:c:\users\levib\documents\github\harmadik-beadando\help.cpp
+1588874917 source:c:\users\levib\documents\github\harmadik-beadando\help.cpp
 	"help.h"
 	"graphics.hpp"
 
-1588427211 source:c:\users\levib\documents\github\harmadik-beadando\main.cpp
-	"thisapp.cpp"
+1588874917 source:c:\users\levib\documents\github\harmadik-beadando\main.cpp
+	"thisapp.h"
 
-1588433201 source:c:\users\levib\documents\github\harmadik-beadando\roller.cpp
+1588874917 source:c:\users\levib\documents\github\harmadik-beadando\roller.cpp
 	"roller.h"
 	<iostream>
 
-1588426796 source:c:\users\levib\documents\github\harmadik-beadando\widget.cpp
+1588874917 source:c:\users\levib\documents\github\harmadik-beadando\widget.cpp
 	"widget.h"
 
 1588431770 c:\users\levib\documents\github\harmadik-beadando\thisapp.cpp
@@ -158,12 +158,34 @@
 	<vector>
 	<fstream>
 
-1588431770 source:c:\users\levib\documents\github\harmadik-beadando\thisapp.cpp
-	"application.h"
-	"widget.h"
-	"counter.h"
-	"drop_list.h"
-	<string>
+1588877828 source:c:\users\levib\documents\github\harmadik-beadando\thisapp.cpp
+	"thisapp.h"
 	<vector>
-	<fstream>
+
+1588877672 c:\users\levib\documents\github\harmadik-beadando\thisapp.h
+	"application.h"
+	"brain.h"
+	"widget.h"
+	"tile.h"
+	<vector>
+
+1588879980 c:\users\levib\documents\github\harmadik-beadando\tile.h
+	"widget.h"
+	"brain.h"
+	<vector>
+
+1588448470 source:c:\users\levib\documents\github\harmadik-beadando\button.cpp
+
+1588880326 source:c:\users\levib\documents\github\harmadik-beadando\tile.cpp
+	"tile.h"
+	"brain.h"
+	<vector>
+	<cmath>
+
+1588880074 c:\users\levib\documents\github\harmadik-beadando\brain.h
+	<vector>
+
+1588880311 source:c:\users\levib\documents\github\harmadik-beadando\brain.cpp
+	"brain.h"
+	"tile.h"
 

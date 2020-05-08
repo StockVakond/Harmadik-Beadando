@@ -42,6 +42,10 @@
 		</Linker>
 		<Unit filename="application.cpp" />
 		<Unit filename="application.h" />
+		<Unit filename="brain.cpp" />
+		<Unit filename="brain.h" />
+		<Unit filename="button.cpp" />
+		<Unit filename="button.h" />
 		<Unit filename="counter.cpp" />
 		<Unit filename="counter.h" />
 		<Unit filename="drop_list.cpp" />
@@ -51,6 +55,10 @@
 		<Unit filename="main.cpp" />
 		<Unit filename="roller.cpp" />
 		<Unit filename="roller.h" />
+		<Unit filename="thisapp.cpp" />
+		<Unit filename="thisapp.h" />
+		<Unit filename="tile.cpp" />
+		<Unit filename="tile.h" />
 		<Unit filename="widget.cpp" />
 		<Unit filename="widget.h" />
 		<Extensions>

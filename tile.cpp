@@ -1,12 +1,14 @@
 #include "tile.h"
+#include "brain.h"
 #include <vector>
 #include <cmath>
 using namespace std;
 using namespace genv;
 
-Tile::Tile(Application *ca,int px,int py,int sx,int sy, std::vector<int>rp,int _state)
+Tile::Tile(Application *ca,Brain *rev,int px,int py,int sx,int sy, std::pair<int,int>rp,int _state)
     :Widget(ca,px,py,sx,sy)
     {
+        pa_brain=rev;
         rel_pos=rp;
         state=_state;
     }
@@ -34,5 +36,8 @@ void Tile::draw(){
     }
 }
 void Tile::button_release(){}
-void Tile::handle(event ev){}
-string Tile::getvalue(){}
+
+void Tile::handle(event ev){
+    pa_brain->make_move(this);
+}
+//string Tile::getvalue(){}

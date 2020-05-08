@@ -75,12 +75,12 @@ void Droplist::handle(event ev){
 void Droplist::button_release(){
     rlr->button_release();
 }
-string Droplist::getvalue(){
+/*string Droplist::getvalue(){
     if(order_of_active!=-1)
         return elements[order_of_active]+"\n";
     else
         return "N/A";
-}
+}*/
 void Droplist::addelement(string a){
     elements.push_back(a);
 }

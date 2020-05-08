@@ -59,13 +59,13 @@ Counter::Counter(Application *ca,int px, int py,int vmin,int vmax,  int val)///s
         presseddown=false;
 
     }
-string Counter::getvalue(){
+/*string Counter::getvalue(){
     stringstream ss;
     ss<<val_int;
     string t;
     ss>>t;
     return t+"\n";
-}
+}*/
 void Counter::button_release(){
     pressedup=false;
     presseddown=false;

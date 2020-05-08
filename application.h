@@ -9,7 +9,7 @@ protected:
     std::vector<Widget*> widgets;
 public:
     virtual ~Application(){};
-    virtual void events();
+    virtual void events()=0;
     virtual void action(std::string)=0;
     void load_widget(Widget * current_widget);
 };

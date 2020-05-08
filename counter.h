@@ -19,7 +19,7 @@ public:
 
     void draw();
     void handle(genv::event ev);
-    string getvalue();
+    //string getvalue();
     void button_release();
 
 };
