@@ -16,6 +16,8 @@ void Tile::change_state(int target_state){
     state=target_state;
 }
 void Tile::draw(){
+    gout<<move_to(pos_x,pos_y)<<color(190,190,130)<<box(size_x,size_y);
+    gout<<move_to(pos_x+1,pos_y+1)<<color(210,210,130)<<box(size_x-2,size_y-2);
     if(!state){}
 
     else if(state==1){
@@ -38,6 +40,10 @@ void Tile::draw(){
 void Tile::button_release(){}
 
 void Tile::handle(event ev){
-    pa_brain->make_move(this);
+    if(ev.type=ev_mouse&&ev.button==btn_left){
+        pa_brain->make_move(this);
+    }
+    else if(ev.type ==ev_mouse&&ev.button==btn_right)
+        pa_brain->show_move(this);
 }
 //string Tile::getvalue(){}

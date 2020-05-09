@@ -1,20 +1,13 @@
 #include "thisapp.h"
 #include <vector>
-
+#include <iostream>
 using namespace std;
 using namespace genv;
 MyApp::MyApp()
 {
-    vector<vector<Tile *>> all_c;
-    genv::gout.open(800,800);
-    for(int i=0;i<8;i++){
-        vector<Tile *> one_c;
-        for(int j=0; j<8;j++){
-            one_c.push_back(new Tile(this,reversi,200+i*50,200+j*50,50,50,{i,j},2));
-        }
-        all_c.push_back(one_c);
-    }
-    board=all_c;
+    reversi=new Brain(0);
+    reversi->initiate(board,this);
+    hint=new Tickbox(this,50,350,20, true);
 }
 void MyApp::events(){
     event ev;
@@ -35,20 +28,20 @@ void MyApp::events(){
                 }
             }
         }
-        if(ev.type==ev_key&&ev.keycode==key_enter)
-            action("enter");
-        if(ev.type==ev_key&&ev.keycode==key_right)
-            action("right");
         if(ev.keycode==key_escape)
             focus=nullptr;
-
         if (focus) {
             focus->handle(ev);
+            reversi->tile_sync(board);
+            reversi->look_for_moves();
+            for (Widget * wg : widgets)
+                wg->draw();
+            gout<<refresh;
         }
-        if(ev.button==-1)
+        /*if(ev.button==-1)
             for (itr=widgets.begin();itr<widgets.end();itr++){
                 (*itr)->button_release();
-        }
+        }*/
 
 
         gout << refresh;

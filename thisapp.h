@@ -4,6 +4,7 @@
 #include "brain.h"
 #include "widget.h"
 #include "tile.h"
+#include "tickbox.h"
 #include <vector>
 using namespace std;
 
@@ -11,6 +12,7 @@ class MyApp: public Application{
 private:
     vector<vector<Tile *>> board;///vector of columns
     Brain *reversi;
+    Tickbox *hint;
 public:
     MyApp();
     void events();
