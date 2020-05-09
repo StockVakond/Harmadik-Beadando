@@ -7,7 +7,6 @@ Tickbox::Tickbox(Application *ca,int px, int py, int s,bool in_tick)
     ticked=in_tick;
 }
 void Tickbox::draw(){
-    int temp_q=genv::gout.cascent()+genv::gout.cdescent()+9;
     gout<<move_to(pos_x,pos_y)<<color(210,210,210)<<box(size_x, size_y);
     gout << move_to(pos_x+1, pos_y+1) << color(230,230,230) << box(size_x-2, size_y-2);
     if(ticked){

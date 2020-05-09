@@ -20,12 +20,12 @@ Brain::Brain(int v){
         temp_3.push_back(temp_2);
     dependencies=temp_3;
 }
-void Brain::initiate(vector<vector<Tile *>> &board, Application *ca){
+void Brain::initiate(vector<vector<Tile *>> &board, Application *ca,Tickbox * _ticker){
     genv::gout.open(800,800);
     for(int i=0;i<8;i++){
         vector<Tile *> one_c;
         for(int j=0; j<8;j++){
-            one_c.push_back(new Tile(ca,this,200+i*50,200+j*50,50,50,{i,j},0));
+            one_c.push_back(new Tile(ca,this,_ticker,200+i*50,200+j*50,50,50,{i,j},0));
             Brain::val_tiles[i][j]=0;
         }
         board.push_back(one_c);

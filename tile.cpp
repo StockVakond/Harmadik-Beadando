@@ -5,17 +5,19 @@
 using namespace std;
 using namespace genv;
 
-Tile::Tile(Application *ca,Brain *rev,int px,int py,int sx,int sy, std::pair<int,int>rp,int _state)
+Tile::Tile(Application *ca,Brain *rev,Tickbox* _ticker,int px,int py,int sx,int sy, std::pair<int,int>rp,int _state)
     :Widget(ca,px,py,sx,sy)
     {
         pa_brain=rev;
         rel_pos=rp;
         state=_state;
+        ticker=_ticker;
     }
 void Tile::change_state(int target_state){
     state=target_state;
 }
 void Tile::draw(){
+
     gout<<move_to(pos_x,pos_y)<<color(190,190,130)<<box(size_x,size_y);
     gout<<move_to(pos_x+1,pos_y+1)<<color(210,210,130)<<box(size_x-2,size_y-2);
     if(!state){}
@@ -26,7 +28,8 @@ void Tile::draw(){
     else if(state==-1){
         gout.set_color(20,20,20);
     }
-    else if(state==2){
+
+    else if(state==2&&ticker->get_ticked()){
         gout.set_color(160,160,160);
     }
     double c=size_x/2;

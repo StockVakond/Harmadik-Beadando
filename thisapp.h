@@ -5,6 +5,7 @@
 #include "widget.h"
 #include "tile.h"
 #include "tickbox.h"
+#include "textview.h"
 #include <vector>
 using namespace std;
 
@@ -13,6 +14,7 @@ private:
     vector<vector<Tile *>> board;///vector of columns
     Brain *reversi;
     Tickbox *hint;
+    Textview *thint;
 public:
     MyApp();
     void events();

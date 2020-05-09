@@ -2,10 +2,11 @@
 #define BRAIN_H_INCLUDED
 #include <vector>
 #include<iostream>
+
 using namespace std;
 class Tile;
 class Application;
-
+class Tickbox;
 class Brain{
 private:
     int val_tiles[8][8];
@@ -14,7 +15,7 @@ private:
     int player=1;
 public:
     Brain(int v);
-    void initiate(vector<vector<Tile *>> &board, Application* ca);
+    void initiate(vector<vector<Tile *>> &board, Application* ca, Tickbox* _ticker);
     void look_for_moves();
     void switch_player();
     void tile_sync(vector<vector<Tile *>> &board);

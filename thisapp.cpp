@@ -6,8 +6,10 @@ using namespace genv;
 MyApp::MyApp()
 {
     reversi=new Brain(0);
-    reversi->initiate(board,this);
-    hint=new Tickbox(this,50,350,20, true);
+
+    hint=new Tickbox(this,100,350,gout.cascent()+gout.cdescent()+6, true);
+    thint=new Textview(this, 50,350,gout.twidth("Hints")+6,gout.cascent()+gout.cdescent()+6,"Hints");
+    reversi->initiate(board,this,hint);
 }
 void MyApp::events(){
     event ev;
