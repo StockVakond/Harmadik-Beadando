@@ -99,7 +99,7 @@
 	<string>
 	<vector>
 
-1588879182 c:\users\levib\documents\github\harmadik-beadando\widget.h
+1589038294 c:\users\levib\documents\github\harmadik-beadando\widget.h
 	<string>
 	"graphics.hpp"
 	"application.h"
@@ -158,34 +158,45 @@
 	<vector>
 	<fstream>
 
-1588877828 source:c:\users\levib\documents\github\harmadik-beadando\thisapp.cpp
+1589038655 source:c:\users\levib\documents\github\harmadik-beadando\thisapp.cpp
 	"thisapp.h"
 	<vector>
+	<iostream>
 
-1588877672 c:\users\levib\documents\github\harmadik-beadando\thisapp.h
+1589038667 c:\users\levib\documents\github\harmadik-beadando\thisapp.h
 	"application.h"
 	"brain.h"
 	"widget.h"
 	"tile.h"
+	"tickbox.h"
 	<vector>
 
-1588879980 c:\users\levib\documents\github\harmadik-beadando\tile.h
+1589034372 c:\users\levib\documents\github\harmadik-beadando\tile.h
 	"widget.h"
 	"brain.h"
 	<vector>
 
 1588448470 source:c:\users\levib\documents\github\harmadik-beadando\button.cpp
 
-1588880326 source:c:\users\levib\documents\github\harmadik-beadando\tile.cpp
+1589034109 source:c:\users\levib\documents\github\harmadik-beadando\tile.cpp
 	"tile.h"
 	"brain.h"
 	<vector>
 	<cmath>
 
-1588880074 c:\users\levib\documents\github\harmadik-beadando\brain.h
+1589034128 c:\users\levib\documents\github\harmadik-beadando\brain.h
 	<vector>
+	<iostream>
 
-1588880311 source:c:\users\levib\documents\github\harmadik-beadando\brain.cpp
+1589035840 source:c:\users\levib\documents\github\harmadik-beadando\brain.cpp
 	"brain.h"
 	"tile.h"
+	<typeinfo>
+	<iostream>
+
+1589038782 source:c:\users\levib\documents\github\harmadik-beadando\tickbox.cpp
+	"tickbox.h"
+
+1589038473 c:\users\levib\documents\github\harmadik-beadando\tickbox.h
+	"widget.h"
 

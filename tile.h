@@ -11,6 +11,7 @@ protected:
     pair<int, int> rel_pos;
     Brain *pa_brain;
 
+
 public:
     Tile(Application *ca,Brain *rev,int px,int py,int sx,int sy, std::pair<int,int>rp,int _state);
      void change_state(int target_state);
