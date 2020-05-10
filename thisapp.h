@@ -38,15 +38,7 @@ public:
     MyApp(int state_no);
     void startup();
     void events();
-    void action(string action_id){
-        /*if(action_id=="enter"){
-            }
-        if(action_id=="rightclick"){
-            }
-        }
-        if(action_id=="left"){
-        }*/
-    }
+    void action(string action_id){}
 };
 
 

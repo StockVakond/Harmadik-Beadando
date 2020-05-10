@@ -24,8 +24,6 @@ public:
      int get_val(){return state;}
      pair<int,int> get_rp(){return rel_pos;}
      void high_light(bool what){highlight=what;};
-    //virtual string getvalue();
-
 };
 
 

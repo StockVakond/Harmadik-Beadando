@@ -15,7 +15,5 @@ public:
     bool active(int, int);
     virtual void draw() const = 0;
     virtual void handle(genv::event ev) = 0;
-    //virtual std::string getvalue()=0;
-    //virtual void button_release() =0;
 };
 #endif // WIDGET_H_INCLUDED

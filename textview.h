@@ -15,7 +15,6 @@ public:
     void handle(genv::event ev);
     void set_textnow(int t);
     void set_text(string t){dtext=t;};
-    //void button_release();
 };
 
 

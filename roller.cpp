@@ -8,7 +8,6 @@ Roller::Roller(int px, int py, int sx, int sy,int s_elements):
             rpos_y=0;
             grabbed = false;
             dy=0;
-            /* s_elements*(genv::gout.cascent()+genv::gout.cdescent()+4) */
             int hanyferel=sy/(genv::gout.cascent()+genv::gout.cdescent()+4);
             int states=s_elements-hanyferel-1;
             if(states>=1)

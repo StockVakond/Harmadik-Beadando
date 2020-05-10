@@ -1,13 +1,10 @@
 #include "brain.h"
 #include "tile.h"
-#include <typeinfo>
-#include <iostream>
 using namespace std;
 Brain::Brain(int v){
     for(int i=0;i<8;i++){
         for(int j=0;j<8;j++){
             val_tiles[i][j]=v;
-            //high_tiles[i][j]=false;
         }
     }
     pair<int,int> q={-1,-1};
@@ -238,7 +235,7 @@ void Brain::look_for_moves(){
             }
         }
     }
-    pair<int,int> q={-1,-1};
+    //pair<int,int> q={-1,-1};
     vector<pair<int,int>>e;
     //e.push_back(q);
     int ct=0;
@@ -256,8 +253,8 @@ void Brain::look_for_moves(){
     }
     if(ct==0){
         no_moves++;
-        cout<<no_moves;
         switch_player();
+        look_for_moves();
     }
     }
 
@@ -275,7 +272,9 @@ void Brain::make_move(Tile * chosen_tile){
         }
         val_tiles[relpos.first][relpos.second]=player;
         switch_player();
+        look_for_moves();
     }
+
 }
 void Brain::switch_player(){
     player=player*(-1);
@@ -297,6 +296,14 @@ void Brain::dont_show(vector<vector<Tile *>> &board){
         for(int i=0;i<8;i++){
             for(int j=0;j<8;j++){
                 board[i][j]->high_light(false);
+        }
+    }
+}
+void Brain::sync_comp(vector<vector<int>> &_move_count){
+    for(int i=0;i<8;i++){
+        for(int j=0;j<8;j++){
+            _move_count[i][j]=dependencies[i][j].size();
+
         }
     }
 }

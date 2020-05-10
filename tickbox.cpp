@@ -21,4 +21,3 @@ void Tickbox::handle(genv::event ev){
     else if(ev.type==ev_key&&ev.keycode==key_enter)
         switch_tick(!ticked);
 }
-//void Tickbox::button_release(){}

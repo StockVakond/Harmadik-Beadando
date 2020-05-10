@@ -57,4 +57,3 @@ void Tile::handle(event ev){
         pa_brain->look_for_moves();
     }
 }
-//string Tile::getvalue(){}

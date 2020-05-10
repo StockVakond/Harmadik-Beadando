@@ -1,6 +1,5 @@
 #include "thisapp.h"
 #include <vector>
-#include <iostream>
 using namespace std;
 using namespace genv;
 MyApp::MyApp(int state_no):Application(state_no)
@@ -15,7 +14,7 @@ void MyApp::startup(){
     hint=new Tickbox(this,100,350,gout.cascent()+gout.cdescent()+6, true,0);
     thint=new Textview(this, 50,350,gout.twidth("Hints")+6,gout.cascent()+gout.cdescent()+6,"Hints",0,false);
     reversi->initiate(board,this,hint);
-    vector<vector<int>> _Vmap={{99,-8,8,6,6,8,-8,99},{-8,-24,-4,-3,-3,-4,-24,-8},{8,-4,7,4,4,7,-4,8},{6,-3,4,0,0,4,-3,6},{6,-3,4,0,0,4,-3,6},{8,-4,7,4,4,7,-4,8},{-8,-24,-4,-3,-3,-4,-24,-8},{99,-8,8,6,6,8,-8,99}};
+    vector<vector<double>> _Vmap={{99,-16,8,6,6,8,-16,99},{-16,-24,-4,-3,-3,-4,-24,-16},{8,-4,7,4,4,7,-4,8},{6,-3,4,0,0,4,-3,6},{6,-3,4,0,0,4,-3,6},{8,-4,7,4,4,7,-4,8},{-16,-24,-4,-3,-3,-4,-24,-16},{99,-16,8,6,6,8,-16,99}};
     vector<vector<Tile *>> *ptb = &board;
     cplayer=new Comp(_Vmap,ptb,reversi);
     pvp=new Button(this,300,250,200,50,"2 Player Mode",1);
@@ -54,6 +53,7 @@ void MyApp::events(){
             noint=true;
             states=0;
             hint->switch_tick(false);
+            sitback->button_release();
         }
         else if(exit->get_val())
             ex=true;
@@ -80,6 +80,7 @@ void MyApp::events(){
             states=2;
             pp=false;
             pc=false;
+            noint=false;
         }
         if(states==2){
                 if(reversi->get_score(1)>reversi->get_score(-1)){
@@ -98,6 +99,7 @@ void MyApp::events(){
             if(ev.type==ev_timer&&reversi->get_player()==-1){
                 ct++;
                 if(ct==3){
+                    cplayer->c_think();
                     cplayer->c_move();
                     reversi->look_for_moves();
                     reversi->tile_sync(board);
@@ -109,6 +111,7 @@ void MyApp::events(){
             if(ev.type==ev_timer){
                 ct++;
                 if(ct==3){
+                    cplayer->c_think();
                     cplayer->c_move();
                     reversi->look_for_moves();
                     reversi->tile_sync(board);

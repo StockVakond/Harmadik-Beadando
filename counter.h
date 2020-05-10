@@ -19,7 +19,6 @@ public:
 
     void draw()const;
     void handle(genv::event ev);
-    //string getvalue();
     void button_release();
 
 };

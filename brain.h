@@ -1,7 +1,6 @@
 #ifndef BRAIN_H_INCLUDED
 #define BRAIN_H_INCLUDED
 #include <vector>
-#include<iostream>
 
 using namespace std;
 class Tile;
@@ -28,6 +27,7 @@ public:
     int get_player(){return player;}
     int get_score(int plyr);
     int get_no_moves(){return no_moves;}
+    void sync_comp(vector<vector<int>> &_move_count);
 };
 
 
