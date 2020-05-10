@@ -7,6 +7,7 @@ Brain::Brain(int v){
     for(int i=0;i<8;i++){
         for(int j=0;j<8;j++){
             val_tiles[i][j]=v;
+            //high_tiles[i][j]=false;
         }
     }
     pair<int,int> q={-1,-1};
@@ -21,11 +22,10 @@ Brain::Brain(int v){
     dependencies=temp_3;
 }
 void Brain::initiate(vector<vector<Tile *>> &board, Application *ca,Tickbox * _ticker){
-    genv::gout.open(800,800);
     for(int i=0;i<8;i++){
         vector<Tile *> one_c;
         for(int j=0; j<8;j++){
-            one_c.push_back(new Tile(ca,this,_ticker,200+i*50,200+j*50,50,50,{i,j},0));
+            one_c.push_back(new Tile(ca,this,_ticker,200+i*50,200+j*50,50,50,{i,j},0,true));
             Brain::val_tiles[i][j]=0;
         }
         board.push_back(one_c);
@@ -34,9 +34,23 @@ void Brain::initiate(vector<vector<Tile *>> &board, Application *ca,Tickbox * _t
     val_tiles[4][4]=-1;
     val_tiles[3][4]=1;
     val_tiles[4][3]=1;
-    tile_sync(board);
     look_for_moves();
     tile_sync(board);
+}
+void Brain::reset(){
+    no_moves=0;
+    for(int i=0;i<8;i++){
+        for(int j=0;j<8;j++){
+            val_tiles[i][j]=0;
+        }
+    }
+    val_tiles[3][3]=-1;
+    val_tiles[4][4]=-1;
+    val_tiles[3][4]=1;
+    val_tiles[4][3]=1;
+    player=1;
+
+    look_for_moves();
 }
 void Brain::tile_sync(vector<vector<Tile *>> &board){
     for(int i=0;i<8;i++){
@@ -46,6 +60,8 @@ void Brain::tile_sync(vector<vector<Tile *>> &board){
     }
 }
 void Brain::look_for_moves(){
+    if(no_moves<2){
+
     vector<pair<int,int>> inner_depend[8][8];
     int current_value=player;
     for(int i=0;i<8;i++){
@@ -102,10 +118,10 @@ void Brain::look_for_moves(){
                 found=false;
                 x=i;
                 y=j;
-                while(y<7&&x==i&&!found){
-                        y++;
+                while(y<8&&x==i&&!found){
+                    y++;
                     if(val_tiles[x][y]==0)
-                        found=true;///actually just a break...not really found
+                        found=true;
                     if(val_tiles[i][y]==(-1)*current_value){
                         to_down.push_back({x,y});
                     }
@@ -126,10 +142,10 @@ void Brain::look_for_moves(){
                     if(val_tiles[x][y]==0)
                         found=true;
                     if(val_tiles[i][y]==(-1)*current_value){
-                        to_down.push_back({x,y});
+                        to_up.push_back({x,y});
                     }
                     if(val_tiles[i][y]==current_value){
-                        for(pair<int,int>copypair :to_down){
+                        for(pair<int,int>copypair :to_up){
                             inner_depend[i][j].push_back(copypair);
                         }
                         found=true;
@@ -224,27 +240,38 @@ void Brain::look_for_moves(){
     }
     pair<int,int> q={-1,-1};
     vector<pair<int,int>>e;
-    e.push_back(q);
+    //e.push_back(q);
+    int ct=0;
     for(int i=0;i<8;i++){
         for(int j=0;j<8;j++){
             dependencies[i][j]=e;
             for(pair<int,int> p:inner_depend[i][j]){
                 dependencies[i][j].push_back(p);
             }
-            if(dependencies[i][j].size()>1){
+            if(dependencies[i][j].size()>0){
                 val_tiles[i][j]=2;
+                ct++;
             }
         }
+    }
+    if(ct==0){
+        no_moves++;
+        cout<<no_moves;
+        switch_player();
+    }
     }
 
 
 }
 void Brain::make_move(Tile * chosen_tile){
     pair<int,int> relpos=chosen_tile->get_rp();
-    if(dependencies[relpos.first][relpos.second].size()>1){
+    if(dependencies[relpos.first][relpos.second].size()>0){
             ///vector<vector<vector<pair<int,int>>>> dependencies;
         for(pair<int,int> lpair:dependencies[relpos.first][relpos.second]){
-            val_tiles[lpair.first][lpair.second]=player;
+            if(lpair.first!=-1){
+            val_tiles[lpair.first][lpair.second]=player;}
+                no_moves=0;
+
         }
         val_tiles[relpos.first][relpos.second]=player;
         switch_player();
@@ -253,6 +280,36 @@ void Brain::make_move(Tile * chosen_tile){
 void Brain::switch_player(){
     player=player*(-1);
 }
-void Brain::show_move(Tile * chosen_tile){
+void Brain::show_move(Tile * chosen_tile,vector<vector<Tile *>> &board ){
+    pair<int,int> relpos=chosen_tile->get_rp();
+    if(dependencies[relpos.first][relpos.second].size()>0){
+            ///vector<vector<vector<pair<int,int>>>> dependencies;
+        for(pair<int,int> lpair:dependencies[relpos.first][relpos.second]){
+                if(lpair.first!=-1){
+                    board[lpair.first][lpair.second]->high_light(true);
+                    }
+            }
+        board[relpos.first][relpos.second]->high_light(true);
+        }
+    }
 
+void Brain::dont_show(vector<vector<Tile *>> &board){
+        for(int i=0;i<8;i++){
+            for(int j=0;j<8;j++){
+                board[i][j]->high_light(false);
+        }
+    }
 }
+int Brain::get_score(int plyr){
+    int ct=0;
+    for(int i=0;i<8;i++){
+        for(int j=0;j<8;j++){
+            if(val_tiles[i][j]==plyr)
+                ct++;
+        }
+    }
+    return ct;
+}
+
+
+

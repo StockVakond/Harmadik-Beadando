@@ -5,8 +5,8 @@
 
 using namespace genv;
 using namespace std;
-Counter::Counter(Application *ca,int px, int py,size_t sx,int vmin,int vmax,  int val)///fix meret van megadva
-    :Widget(ca,px,py,((sx+30.0)/2+abs((sx-30.0)/2)),genv::gout.cascent()+genv::gout.cdescent()+9)
+Counter::Counter(Application *ca,int px, int py,size_t sx,int vmin,int vmax,  int val, int _state)///fix meret van megadva
+    :Widget(ca,px,py,((sx+30.0)/2+abs((sx-30.0)/2)),genv::gout.cascent()+genv::gout.cdescent()+9, _state)
     {
         ///foolproof:
         ///a max és min nem kell hogy jo sorrendben legyen,
@@ -36,8 +36,8 @@ Counter::Counter(Application *ca,int px, int py,size_t sx,int vmin,int vmax,  in
         presseddown=false;
     }
 
-Counter::Counter(Application *ca,int px, int py,int vmin,int vmax,  int val)///size_x a max/min számokhoz mérten
-    :Widget(ca,px,py,help_width(vmin,vmax)+20,genv::gout.cascent()+genv::gout.cdescent()+9)
+Counter::Counter(Application *ca,int px, int py,int vmin,int vmax,  int val, int _state)///size_x a max/min számokhoz mérten
+    :Widget(ca,px,py,help_width(vmin,vmax)+20,genv::gout.cascent()+genv::gout.cdescent()+9, _state)
     {
         ///foolproof
         ///a max és min nem kell hogy jo sorrendben legyen,
@@ -71,7 +71,7 @@ void Counter::button_release(){
     presseddown=false;
     //draw();
 }
-void Counter::draw(){
+void Counter::draw()const{
     stringstream ss;
     ss<<val_int;
     string t;

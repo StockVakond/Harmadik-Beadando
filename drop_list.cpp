@@ -4,8 +4,8 @@
 using namespace std;
 using namespace genv;
 
-Droplist::Droplist(Application *ca, int px, int py, int sx, int sy, vector<string>_elements)
-    :Widget(ca,px,py,sx,sy)
+Droplist::Droplist(Application *ca, int px, int py, int sx, int sy, vector<string>_elements, int _state)
+    :Widget(ca,px,py,sx,sy, _state)
     {
         elements=_elements;
         rlr=new Roller(px+sx-14, py, 14, sy,elements.size());
@@ -14,12 +14,12 @@ Droplist::Droplist(Application *ca, int px, int py, int sx, int sy, vector<strin
         drpos=rlr->gety();
         double w=size_y/(elements.size());
     }
-void Droplist::draw(){
+void Droplist::draw()const{
 
     gout<<color(150,150,150)<<move_to(pos_x-1, pos_y-1)<<box_to(pos_x+size_x+1, pos_y+size_y+1);
 
-    drpos=rlr->gety();
-    w=(size_y)/(elements.size());
+
+
     string disptext;
     ///(dynamic)canvas for menu
     canvas c;
@@ -51,6 +51,8 @@ void Droplist::draw(){
 
 }
 void Droplist::handle(event ev){
+    w=(size_y)/(elements.size());
+    drpos=rlr->gety();
     if(ev.type==ev_mouse){
         if(ev.pos_x<pos_x+size_x-14){
             if(ev.button==btn_left){

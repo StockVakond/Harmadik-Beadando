@@ -20,7 +20,7 @@ public:
     Roller(int px, int py, int sx, int sy,int s_elements);
     int gety(){return rpos_y;}
      void handle(event ev);
-     void draw();
+     void draw()const;
      void roll(int a);
      void button_release();
 };

@@ -51,7 +51,7 @@ void Roller::handle(event ev){
         }
     }
 }
-void Roller::draw(){
+void Roller::draw()const{
     ///line
     gout<<color(180,180,180)<<move_to(pos_x,pos_y)<<box_to(pos_x+size_x, pos_y+size_y);
     gout<<color(170,170,170)<<move_to(pos_x+2,pos_y+2)<<box_to(pos_x+size_x-2, pos_y+size_y-2);

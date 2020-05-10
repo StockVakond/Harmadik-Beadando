@@ -6,9 +6,13 @@
 #include <iostream>
 using namespace std;
 using namespace genv;
-void Application::load_widget(Widget * current_widget){
-    widgets.push_back(current_widget);
+Application::Application(int state_no){
+for(int i=0;i<state_no;i++){
+    vector<Widget*> iwid;
+    widgets.push_back(iwid);
     }
+}
 
-
-
+void Application::load_widget(Widget * current_widget,int st){
+    widgets[st].push_back(current_widget);
+    }

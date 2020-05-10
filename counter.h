@@ -13,11 +13,11 @@ protected:
     bool pressedup;
     bool presseddown;
 public:
-    Counter(Application *ca,int px, int py,size_t sx,int vmin,int vmax,  int val);
-    Counter(Application *ca,int px, int py,int vmin,int vmax,  int val);
+    Counter(Application *ca,int px, int py,size_t sx,int vmin,int vmax,  int val, int _state);
+    Counter(Application *ca,int px, int py,int vmin,int vmax,  int val, int _state);
 
 
-    void draw();
+    void draw()const;
     void handle(genv::event ev);
     //string getvalue();
     void button_release();

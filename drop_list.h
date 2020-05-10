@@ -18,8 +18,8 @@ protected:
     Roller *rlr;
 
 public:
-    Droplist(Application *, int px, int py, int sx, int sy, vector<string>_elements);
-     void draw();
+    Droplist(Application *, int px, int py, int sx, int sy, vector<string>_elements, int _state);
+     void draw()const;
      void handle(genv::event ev);
      string getvalue();
      void button_release();
